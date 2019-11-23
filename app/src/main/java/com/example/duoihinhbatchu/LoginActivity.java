@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     String strUser, strPass;
     NguoiDungDao nguoiDungDao;
     private DatabaseHelper dbHelper;
+    //adads
 
 
     @Override
