@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void OnGame(View view) {
-        Intent intent=new Intent(MainActivity.this,GameActivity.class);
+        Intent intent=new Intent(MainActivity.this,Main2Activity.class);
         startActivity(intent);
     }
 

@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         cbRemember = (CheckBox) findViewById(R.id.cbRemember);
         nguoiDungDao = new NguoiDungDao(getApplicationContext());
         loginPresenter = new LoginPresenter(this);
+        edtUsername.setText("admin");
+        edtPassword.setText("admin");
 
 
 //        NguoiDung user2;

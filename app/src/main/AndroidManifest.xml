@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.duoihinhbatchu">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +17,11 @@
         <activity android:name=".DangkyActivity" />
         <activity android:name=".ChiaSeActivity" />
         <activity android:name=".HuongDanActivity" />
+        <activity android:name=".Main4Activity"/>
+        <activity android:name=".Main3Activity" />
+        <activity android:name=".Main2Activity" />
         <activity android:name=".XepHangActivity" />
+
         <activity android:name=".GameActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             >
@@ -29,6 +37,10 @@
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admod_app_id" />
     </application>
 
 </manifest>
