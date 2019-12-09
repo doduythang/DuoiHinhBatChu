@@ -7,7 +7,16 @@
     android:background="@drawable/bg_login"
     tools:context="com.example.duoihinhbatchu.LoginActivity">
 
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ĐĂNG NHẬP"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edtUsername"
+        app:layout_constraintTop_toTopOf="parent" />
     <EditText
         android:backgroundTint="@color/colorWhite"
         android:id="@+id/edtUsername"
@@ -42,6 +51,7 @@
         app:layout_constraintVertical_bias="0.032" />
 
     <TextView
+
         android:textColor="@color/colorWhite"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -49,6 +59,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginEnd="64dp"
         android:layout_marginRight="64dp"
+        android:onClick="Dangky"
         android:text="Đăng ký?"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,7 +82,7 @@
 
     <Button
         android:background="@drawable/boder_btn"
-        android:onClick="login"
+
         android:id="@+id/btnLogin"
         android:layout_width="280dp"
         android:layout_height="wrap_content"

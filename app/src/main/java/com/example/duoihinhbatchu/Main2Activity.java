@@ -30,7 +30,9 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
     private static final String TAG ="rdom";
     private ImageView imThoat, imGoiY;
     private TextView tv_Lever;
+    String username,fullname;
     private TextView tv_ruby;
+    private TextView edFullName, edusername;
     private int ruby = 0;
     private LinearLayout layout_2;
     private Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_10,btn_11,btn_12,btn_13,btn_14,btn_15,btn_16;
@@ -81,8 +83,16 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        ActionBar b = getSupportActionBar();
-        b.hide();
+                Intent intent = getIntent();
+        Bundle b= intent.getExtras();
+         username = b.getString("USERNAME");
+         fullname=b.getString("FULLNAME");
+edFullName=findViewById(R.id.tv_usernamegame);
+        edusername=findViewById(R.id.tv_fullname);
+        edFullName.setText(fullname);
+        edusername.setText(username);
+        ActionBar a = getSupportActionBar();
+        a.hide();
         inintText();
         innitSQL();
         khoitaoketqua();
@@ -162,6 +172,12 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
     @Override
     public void onBackPressed() {
         Intent i=new Intent(Main2Activity.this,MainActivity.class);
+//        Bundle b = new Bundle() ;
+//        b.putString("USERNAME",username);
+//        b.putString("FULLNAME",fullname);
+//
+//        i.putExtras(b);
+
         startActivity(i);
         super.onBackPressed();
 

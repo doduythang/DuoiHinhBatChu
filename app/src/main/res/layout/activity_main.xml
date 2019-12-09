@@ -8,15 +8,70 @@
     android:orientation="vertical"
     android:background="@drawable/splash"
     tools:context="com.example.duoihinhbatchu.MainActivity">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imgUser"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/nguoidung" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name" />
+
+            <TextView
+
+                android:id="@+id/tvDiem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="dddddddđ" />
+
+        </LinearLayout>
+        <!--<ImageView-->
+        <!--android:layout_gravity="center"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:id="@+id/imgchangepass"-->
+        <!--android:src="@drawable/baseline_vpn_key_black_18dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginRight="4dp"/>-->
+        <ImageView
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:id="@+id/imgDeleteUser"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_close" />
+
+    </LinearLayout>
 
     <!-- TODO: Update blank fragment layout -->
 
     <Button
+
         android:id="@+id/btnPlay"
         android:layout_width="125dp"
         android:layout_height="35dp"
         android:background="@drawable/boder_btn"
-        android:onClick="OnGame"
+
         android:text="Chơi game"
         android:textColor="#FF000000"
         app:layout_constraintBottom_toBottomOf="parent"

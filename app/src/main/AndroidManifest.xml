@@ -14,13 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".DoiMatKhauActivity"></activity>
-        <activity android:name=".DangkyActivity" />
         <activity android:name=".ChiaSeActivity" />
         <activity android:name=".HuongDanActivity" />
         <activity android:name=".Main4Activity"/>
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main2Activity" />
         <activity android:name=".XepHangActivity" />
+        <activity android:name=".DangKyActivity" />
 
         <activity android:name=".GameActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
@@ -28,6 +28,7 @@
 
         </activity>
         <activity android:name=".LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

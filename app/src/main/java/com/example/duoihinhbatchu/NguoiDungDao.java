@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +14,7 @@ public class NguoiDungDao {
     private DatabaseHelper dbHelper;
 
     public static final String TABLE_NAME = "NguoiDung";
-    public static final String SQL_NGUOI_DUNG = "CREATE TABLE NguoiDung(username " +
-            "text primary key, password text, phone text,hoten text);";
+    public static final String SQL_NGUOI_DUNG = "CREATE TABLE NguoiDung(username text primary key, password text, phone text,hoten text);";
     public static final String TAG = "NguoiDungDao";
 
     public NguoiDungDao(Context context) {
