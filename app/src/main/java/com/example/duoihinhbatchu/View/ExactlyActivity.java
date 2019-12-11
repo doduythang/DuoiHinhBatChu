@@ -34,10 +34,7 @@ public class ExactlyActivity extends AppCompatActivity {
 
         addEvent();
         addControl();
-        MobileAds.initialize(this, " ca-app-pub-3940256099942544~3347511713");
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 
     }
 
@@ -49,14 +46,6 @@ public class ExactlyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in=new Intent(ExactlyActivity.this, PlayActivity.class);
                 startActivity(in); finish();
-            }
-        });
-        btnThoat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in=new Intent(ExactlyActivity.this, HomeActivity.class);
-                startActivity(in);
-                finish();
             }
         });
     }
@@ -72,7 +61,6 @@ public class ExactlyActivity extends AppCompatActivity {
 
     private void addEvent() {
         tvdapan=findViewById(R.id.tvdapan);
-        btnThoat=findViewById(R.id.btnThoat);
         btnTiep=findViewById(R.id.btnTiep);
     }
 

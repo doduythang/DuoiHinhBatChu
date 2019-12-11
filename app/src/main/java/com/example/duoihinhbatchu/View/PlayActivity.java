@@ -379,16 +379,16 @@ public class PlayActivity extends AppCompatActivity implements RewardedVideoAdLi
                     AlertDialog.Builder builder = new AlertDialog.Builder(PlayActivity.this);
                     builder.setTitle("rất tiếc bạn không đủ ruby để mở ký tự?");
                     builder.setIcon(R.drawable.nhaymat);
-                    builder.setPositiveButton("kiếm ruyby", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (mAd.isLoaded()) {
-                                mAd.show();
-                            } else {
-                                Log.e("Error", "ads not load");
-                            }
-                        }
-                    });
+//                    builder.setPositiveButton("kiếm ruyby", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            if (mAd.isLoaded()) {
+//                                mAd.show();
+//                            } else {
+//                                Log.e("Error", "ads not load");
+//                            }
+//                        }
+//                    });
                     builder.setNegativeButton("thoát", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

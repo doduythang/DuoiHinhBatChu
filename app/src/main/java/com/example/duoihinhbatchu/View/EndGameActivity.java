@@ -14,7 +14,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class EndGameActivity extends AppCompatActivity {
-    private AdView mAdView;
+//    private AdView mAdView;
     Button btnThoat,btnGameKhac;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,9 +22,9 @@ public class EndGameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_endgame);
 
         MobileAds.initialize(this, " ca-app-pub-3940256099942544~3347511713");
-        mAdView = findViewById(R.id.adView);
+//        mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+//        mAdView.loadAd(adRequest);
         btnGameKhac=findViewById(R.id.btnGamekhac);
         btnThoat=findViewById(R.id.btnThoatGame);
         btnGameKhac.setOnClickListener(new View.OnClickListener() {
