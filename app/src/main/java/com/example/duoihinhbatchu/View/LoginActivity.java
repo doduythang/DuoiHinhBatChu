@@ -38,10 +38,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_login);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-            setTitle("ĐĂNG NHẬP");
-
             edtUsername = (EditText) findViewById(R.id.edtUsername);
             edtPassword = (EditText) findViewById(R.id.edtPassword);
 //        cbRemember = (CheckBox) findViewById(R.id.cbRemember);

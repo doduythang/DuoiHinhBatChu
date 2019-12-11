@@ -13,27 +13,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.DoiMatKhauActivity"></activity>
-        <activity android:name=".View.ChiaSeActivity" />
-        <activity android:name=".View.HuongDanActivity" />
-        <activity android:name=".View.Main4Activity"/>
-        <activity android:name=".View.Main3Activity" />
-        <activity android:name=".View.Main2Activity" />
-        <activity android:name=".View.XepHangActivity" />
-        <activity android:name=".View.DangKyActivity" />
-
-        <activity android:name=".View.LoginActivity">
-
+        <activity android:name=".View.Spash_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            />
+        <activity android:name=".View.DoiMatKhauActivity" />
+        <activity android:name=".View.ChiaSeActivity" />
+        <activity android:name=".View.HuongDanActivity" />
+        <activity android:name=".View.Main4Activity" />
+        <activity android:name=".View.Main3Activity" />
+        <activity android:name=".View.Main2Activity" />
+        <activity android:name=".View.XepHangActivity" />
+        <activity android:name=".View.DangKyActivity" />
+        <activity android:name=".View.LoginActivity">
+
+        </activity>
+        <activity
+            android:name=".View.MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
