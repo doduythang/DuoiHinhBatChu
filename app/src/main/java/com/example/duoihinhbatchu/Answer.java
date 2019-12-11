@@ -7,6 +7,7 @@ public class Answer {
     public Answer(String answer, int idImage) {
         this.answer = answer;
         this.idImage = idImage;
+        //l
     }
 
     public String getAnswer() {

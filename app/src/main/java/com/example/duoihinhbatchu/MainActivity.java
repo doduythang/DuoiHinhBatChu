@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,6 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.facebook.CallbackManager;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 
 public class MainActivity extends AppCompatActivity {
     TextView edFullName, edusername;
@@ -64,8 +69,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void OnChiaSe(View view) {
-        Intent intent = new Intent(MainActivity.this, ChiaSeActivity.class);
-        startActivity(intent);
+        ShareDialog shareDialog = new ShareDialog(this);
+
+        CallbackManager callbackManager = CallbackManager.Factory.create();
+
+        ShareLinkContent shareLinkContent = new ShareLinkContent.Builder()
+                .setContentUrl(Uri.parse("https://play.google.com/store/apps/details?id=com.bhmedia.duoihinh&hl=vi"))
+                .build();
+        shareDialog.show(shareLinkContent);
     }
 
     public void OnHuongDan(View view) {

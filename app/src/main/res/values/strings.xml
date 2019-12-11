@@ -26,4 +26,6 @@
     <string name="notify_wrong_username_password">Không tồn người dùng</string>
     <string name="matkhau_login">Mật Khẩu</string>
     <string name="tentaikhong_login">Tên tài khoản</string>
+    <string name="facebook_app_id">2269142299852087</string>
+    <string name="fb_login_protocol_scheme">fb2269142299852087</string>
 </resources>

@@ -23,7 +23,7 @@ public class DangKyActivity extends AppCompatActivity {
     private EditText edtphone;
     private Button btncanceluser;
     private Button btnadduser;
-    private Button btnlistnguoidung;
+
     NguoiDungDao nguoiDungDao;
 
     @Override
@@ -44,22 +44,7 @@ btncanceluser.setOnClickListener(new View.OnClickListener() {
         startActivity(intent);
     }
 });
-        btnlistnguoidung.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(DangKyActivity.this,MainActivity.class);
 
-                Bundle b = new Bundle() ;
-
-                b.putString("USERNAME",edUserName.getText().toString());
-                b.putString("PHONE",edtphone.getText().toString() );
-                b.putString("FULLNAME",edfullname.getText().toString());
-                b.putString("PASSWORD",edtPassword.getText().toString());
-                intent.putExtras(b);
-
-                startActivity(intent);
-            }
-        });
         btnadduser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +63,7 @@ btncanceluser.setOnClickListener(new View.OnClickListener() {
         edtphone = (EditText) findViewById(R.id.edtphone);
         btncanceluser = (Button) findViewById(R.id.btncanceluser);
         btnadduser = (Button) findViewById(R.id.btnadduser);
-        btnlistnguoidung = (Button) findViewById(R.id.btnlistnguoidung);
+
     }
 
     public void addUser() {
@@ -88,12 +73,14 @@ btncanceluser.setOnClickListener(new View.OnClickListener() {
         try {
             if (validateForm()>0){
                 if (nguoiDungDao.insertNguoiDung(user)>0){
-                    Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(DangKyActivity.this,LoginActivity.class);
+                    startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Đăng kí thành công", Toast.LENGTH_SHORT).show();
 //                    Intent b = new Intent(DangKyActivity.this, NguoidungActivity.class);
 //                    startActivity(b);
 
                 }else {
-                    Toast.makeText(getApplicationContext(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Đăng kí thất bại", Toast.LENGTH_SHORT).show();
                 }
             }
         }catch (Exception e){
