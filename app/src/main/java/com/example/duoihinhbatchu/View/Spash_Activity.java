@@ -22,7 +22,7 @@ public class Spash_Activity extends AppCompatActivity {
                 Spash_Activity.this.startActivity(mainIntent);
                 Spash_Activity.this.finish();
             }
-        }, 3000);
+        }, 1000);
     }
 
 }

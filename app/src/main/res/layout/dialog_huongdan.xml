@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/frameLayout"
+        android:layout_width="380dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="500dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/khunghd"
+    android:orientation="vertical"
+      >
+
+        <ImageView
+            android:id="@+id/imgv_close_dialog_huongdan"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:src="@drawable/ic_close" />
+
+        <LinearLayout
+            android:layout_gravity="center_horizontal"
+            android:layout_width="380dp"
+            android:layout_height="500dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hướng dẫn"
+                android:textSize="25dp"
+                android:layout_marginTop="55dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="Với mỗi câu trả lời đúng trong game đuổi hình bắt chữ phiên bản mới nhất này, bạn sẽ được cộng 4 viên kim cương, vượt hết 591 câu hỏi người chơi sẽ kết thúc được phiên bản 1 của game này và cập nhật thêm ở các phiên bản sau. Nếu gặp những câu hỏi khó, game sẽ có ô gợi ý cho người chơi, với mỗi chữ cái được mở ra thì bạn sẽ bị trừ 20 ruby/ lần. Hãy suy nghĩ và cân nhắc thật kĩ để không bị mất quá nhiều ruby nhé."
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
