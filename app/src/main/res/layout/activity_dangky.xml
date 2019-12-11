@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:background="@drawable/splash"
+    android:background="@drawable/bg_login"
     android:orientation="vertical">
 
 
@@ -34,15 +34,15 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textSize="20sp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
+                android:text="Đăng ký"
+                android:textAlignment="center"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="THÊM NGƯỜI CHƠI"/>
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

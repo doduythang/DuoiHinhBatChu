@@ -302,14 +302,6 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
 
 
     }
-
-    private void innitvideo() {
-        MobileAds.initialize(this, getString(R.string.admod_app_id));
-        mAd = (RewardedVideoAd) MobileAds.getRewardedVideoAdInstance(this);
-        mAd.setRewardedVideoAdListener(this);
-    }
-
-
     private void creatChosse() {
 
         imThoat.setOnClickListener(new View.OnClickListener() {

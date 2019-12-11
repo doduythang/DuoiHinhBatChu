@@ -66,33 +66,19 @@
         app:layout_constraintTop_toBottomOf="@+id/edtPassword"
         app:layout_constraintVertical_bias="0.066" />
 
-    <CheckBox
-
-        android:textColor="@color/colorWhite"
-        android:id="@+id/cbRemember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lưu mật khẩu"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.363"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword"
-        app:layout_constraintVertical_bias="0.071" />
-
     <Button
-        android:background="@drawable/boder_btn"
-
         android:id="@+id/btnLogin"
+
         android:layout_width="280dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/boder_btn"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbRemember"
-        app:layout_constraintVertical_bias="0.142" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword"
+        app:layout_constraintVertical_bias="0.211" />
 
     <TextView
         android:textColor="@color/colorWhite"
