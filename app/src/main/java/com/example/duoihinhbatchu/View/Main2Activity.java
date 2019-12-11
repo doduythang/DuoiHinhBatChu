@@ -1,4 +1,4 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -20,6 +20,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.duoihinhbatchu.Model.NguoiDung;
+import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+import com.example.duoihinhbatchu.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 
@@ -88,14 +91,14 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
         setContentView(R.layout.activity_main2);
         nguoiDungDao = new NguoiDungDao(getApplicationContext());
         nguoiDung = new NguoiDung();
-        Intent intent = getIntent();
-        Bundle b = intent.getExtras();
-        username = b.getString("USERNAME");
-        edFullName = findViewById(R.id.tv_usernamegame);
-        edusername = findViewById(R.id.tv_fullname);
-        nguoiDung = nguoiDungDao.getUser(username);
-        edFullName.setText(nguoiDung.hoTen);
-        edusername.setText(nguoiDung.userName);
+//        Intent intent = getIntent();
+//        Bundle b = intent.getExtras();
+//        username = b.getString("USERNAME");
+//        edFullName = findViewById(R.id.tv_usernamegame);
+//        edusername = findViewById(R.id.tv_fullname);
+//        nguoiDung = nguoiDungDao.getUser(username);
+//        edFullName.setText(nguoiDung.getHoTen());
+//        edusername.setText(nguoiDung.getUserName());
         ActionBar a = getSupportActionBar();
         a.hide();
         inintText();
@@ -108,13 +111,32 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
         creatImage();
         createButton();
         createButtonPick();
+
         imThoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
+                builder.setTitle("Bạn có muốn đăng xuất!!!");
+                builder.setIcon(R.drawable.nhaymat);
+                builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Main2Activity.this, LoginActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
     }
+
 
 
     private void innitSQL() {

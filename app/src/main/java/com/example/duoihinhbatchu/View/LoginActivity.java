@@ -1,4 +1,4 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,12 +10,16 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.duoihinhbatchu.Presenter.LoginPresenter;
+import com.example.duoihinhbatchu.Model.NguoiDung;
+import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+import com.example.duoihinhbatchu.R;
 
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
-    private  LoginPresenter loginPresenter;
+    private LoginPresenter loginPresenter;
     private EditText edtUsername;
     private EditText edtPassword;
     NguoiDungDao nguoiDungDao;
@@ -186,7 +190,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
 
     public void Dangky(View view) {
-            Intent intent= new Intent(LoginActivity.this,DangKyActivity.class);
+            Intent intent= new Intent(LoginActivity.this, DangKyActivity.class);
             startActivity(intent);
 
     }

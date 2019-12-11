@@ -1,14 +1,16 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class XepHangActivity extends AppCompatActivity {
+import com.example.duoihinhbatchu.R;
+
+public class DoiMatKhauActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_xep_hang);
+        setContentView(R.layout.activity_doi_mat_khau);
     }
 }

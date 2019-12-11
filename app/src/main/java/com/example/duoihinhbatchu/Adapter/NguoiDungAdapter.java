@@ -1,4 +1,4 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.Adapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -12,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.example.duoihinhbatchu.Model.NguoiDung;
+import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+import com.example.duoihinhbatchu.R;
 
 import java.util.List;
 

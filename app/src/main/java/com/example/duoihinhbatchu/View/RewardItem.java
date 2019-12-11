@@ -1,4 +1,4 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 
 
 public interface RewardItem {

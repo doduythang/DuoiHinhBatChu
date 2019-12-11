@@ -1,17 +1,17 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.duoihinhbatchu.Model.NguoiDung;
+import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+import com.example.duoihinhbatchu.R;
 
 import com.facebook.CallbackManager;
 import com.facebook.share.model.ShareLinkContent;
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         Bundle b = intent.getExtras();
         username = b.getString("USERNAME");
         nguoiDung = nguoiDungDao.getUser(username);
-        edFullName.setText(nguoiDung.hoTen);
-        edusername.setText(nguoiDung.userName);
+        edFullName.setText(nguoiDung.getHoTen());
+        edusername.setText(nguoiDung.getUserName());
 
 
         btplay = findViewById(R.id.btnPlay);

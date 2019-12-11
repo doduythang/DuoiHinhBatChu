@@ -13,21 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DoiMatKhauActivity"></activity>
-        <activity android:name=".ChiaSeActivity" />
-        <activity android:name=".HuongDanActivity" />
-        <activity android:name=".Main4Activity"/>
-        <activity android:name=".Main3Activity" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".XepHangActivity" />
-        <activity android:name=".DangKyActivity" />
+        <activity android:name=".View.DoiMatKhauActivity"></activity>
+        <activity android:name=".View.ChiaSeActivity" />
+        <activity android:name=".View.HuongDanActivity" />
+        <activity android:name=".View.Main4Activity"/>
+        <activity android:name=".View.Main3Activity" />
+        <activity android:name=".View.Main2Activity" />
+        <activity android:name=".View.XepHangActivity" />
+        <activity android:name=".View.DangKyActivity" />
 
-        <activity android:name=".GameActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            >
-
-        </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".View.LoginActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +31,7 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".View.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             />
 

@@ -3,7 +3,7 @@
 // (powered by Fernflower decompiler)
 //
 
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 public interface RewardedVideoAdListener {
     void onRewardedVideoAdLoaded();
 

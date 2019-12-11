@@ -1,4 +1,6 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.Presenter;
+
+import com.example.duoihinhbatchu.View.LoginView;
 
 public class LoginPresenter {
 

@@ -1,10 +1,13 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.DataBase;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import com.example.duoihinhbatchu.DataBase.DatabaseHelper;
+import com.example.duoihinhbatchu.Model.NguoiDung;
 
 import java.util.ArrayList;
 import java.util.List;

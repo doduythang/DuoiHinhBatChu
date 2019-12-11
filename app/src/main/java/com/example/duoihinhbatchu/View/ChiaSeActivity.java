@@ -1,8 +1,10 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.duoihinhbatchu.R;
 
 public class ChiaSeActivity extends AppCompatActivity {
 

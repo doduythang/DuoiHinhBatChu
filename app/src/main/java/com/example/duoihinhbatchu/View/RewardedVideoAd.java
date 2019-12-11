@@ -1,7 +1,8 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 
 import android.content.Context;
 import android.os.Bundle;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
 import com.google.android.gms.ads.reward.AdMetadataListener;
