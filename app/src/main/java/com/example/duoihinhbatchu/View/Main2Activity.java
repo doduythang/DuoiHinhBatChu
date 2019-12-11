@@ -99,8 +99,7 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
 //        nguoiDung = nguoiDungDao.getUser(username);
 //        edFullName.setText(nguoiDung.getHoTen());
 //        edusername.setText(nguoiDung.getUserName());
-        ActionBar a = getSupportActionBar();
-        a.hide();
+
         inintText();
         innitSQL();
         khoitaoketqua();

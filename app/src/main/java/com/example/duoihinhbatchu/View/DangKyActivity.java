@@ -36,13 +36,7 @@ public class DangKyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dangky);
-        setTitle("Thêm Người Dùng");
         initView();
-
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
 btncanceluser.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {

@@ -32,8 +32,7 @@ public class Main3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
-        ActionBar b = getSupportActionBar();
-        b.hide();
+
         addEvent();
         addControl();
         MobileAds.initialize(this, " ca-app-pub-3940256099942544~3347511713");
