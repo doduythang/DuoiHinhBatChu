@@ -1,4 +1,4 @@
-package com.example.duoihinhbatchu;
+package com.example.duoihinhbatchu.View;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+import com.example.duoihinhbatchu.Model.NguoiDung;
+import com.example.duoihinhbatchu.R;
+import com.example.duoihinhbatchu.View.LoginActivity;
+import com.example.duoihinhbatchu.View.MainActivity;
 
 
 public class DangKyActivity extends AppCompatActivity {
@@ -40,11 +46,26 @@ public class DangKyActivity extends AppCompatActivity {
 btncanceluser.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Intent intent=new Intent(DangKyActivity.this,LoginActivity.class);
+        Intent intent=new Intent(DangKyActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 });
-
+//        btnlistnguoidung.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(DangKyActivity.this, MainActivity.class);
+//
+//                Bundle b = new Bundle() ;
+//
+//                b.putString("USERNAME",edUserName.getText().toString());
+//                b.putString("PHONE",edtphone.getText().toString() );
+//                b.putString("FULLNAME",edfullname.getText().toString());
+//                b.putString("PASSWORD",edtPassword.getText().toString());
+//                intent.putExtras(b);
+//
+//                startActivity(intent);
+//            }
+//        });
         btnadduser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,14 +94,12 @@ btncanceluser.setOnClickListener(new View.OnClickListener() {
         try {
             if (validateForm()>0){
                 if (nguoiDungDao.insertNguoiDung(user)>0){
-                    Intent intent = new Intent(DangKyActivity.this,LoginActivity.class);
-                    startActivity(intent);
-                    Toast.makeText(getApplicationContext(), "Đăng kí thành công", Toast.LENGTH_SHORT).show();
-//                    Intent b = new Intent(DangKyActivity.this, NguoidungActivity.class);
-//                    startActivity(b);
+                    Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+                    Intent b = new Intent(DangKyActivity.this, LoginActivity.class);
+                    startActivity(b);
 
                 }else {
-                    Toast.makeText(getApplicationContext(), "Đăng kí thất bại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Thêm thất bại", Toast.LENGTH_SHORT).show();
                 }
             }
         }catch (Exception e){
