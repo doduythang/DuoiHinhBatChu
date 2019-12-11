@@ -27,23 +27,25 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Main2Activity extends AppCompatActivity implements RewardedVideoAdListener {
-    private static final String TAG ="rdom";
+    private static final String TAG = "rdom";
     private ImageView imThoat, imGoiY;
     private TextView tv_Lever;
-    String username,fullname;
+    String username, fullname;
     private TextView tv_ruby;
     private TextView edFullName, edusername;
+    NguoiDung nguoiDung;
+    NguoiDungDao nguoiDungDao;
     private int ruby = 0;
     private LinearLayout layout_2;
-    private Button btn_1,btn_2,btn_3,btn_4,btn_5,btn_6,btn_7,btn_8,btn_9,btn_10,btn_11,btn_12,btn_13,btn_14,btn_15,btn_16;
-    private Button btnD_1,btnD_2,btnD_3,btnD_4,btnD_5,btnD_6,btnD_7,btnD_8,btnD_9,btnD_10,btnD_11,btnD_12,btnD_13,btnD_14,btnD_15,btnD_16;
+    private Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_10, btn_11, btn_12, btn_13, btn_14, btn_15, btn_16;
+    private Button btnD_1, btnD_2, btnD_3, btnD_4, btnD_5, btnD_6, btnD_7, btnD_8, btnD_9, btnD_10, btnD_11, btnD_12, btnD_13, btnD_14, btnD_15, btnD_16;
     private final String[] Key = {
-            "HOIDONG","AOMUA","OTO","DANONG","XAKEP","TOHOAI","CANTHIEP","CATTUONG",
-            "DANHLUA","TICHPHAN","QUYHANG","SONGHANH","THOTHE","THATTINH","TRANHTHU", "TOTIEN","MASAT","HONGTAM",
-            "BAIBAC","BIBACH","CHIASE","CHINCHAN","CUSUHAO","DETIEN","DOITRANGTHAYDEN",
-            "FIFA","GIAODIEN","HOANGHAU","HOANHTRANG","HOCLECH","HOIHOP","HOVIETTRUNG",
-            "KHAITHAC","LABAN","LANHDAO","MIEUTA","NHATBAN","ONGBAU","QUYCHUAN",
-            "TAMLANGNUACAN","TETHAP","THONGTHOANG","THUONGHIEU","TOICAO","TRUONGSONTAY","TUNGTANG"
+            "HOIDONG", "AOMUA", "OTO", "DANONG", "XAKEP", "TOHOAI", "CANTHIEP", "CATTUONG",
+            "DANHLUA", "TICHPHAN", "QUYHANG", "SONGHANH", "THOTHE", "THATTINH", "TRANHTHU", "TOTIEN", "MASAT", "HONGTAM",
+            "BAIBAC", "BIBACH", "CHIASE", "CHINCHAN", "CUSUHAO", "DETIEN", "DOITRANGTHAYDEN",
+            "FIFA", "GIAODIEN", "HOANGHAU", "HOANHTRANG", "HOCLECH", "HOIHOP", "HOVIETTRUNG",
+            "KHAITHAC", "LABAN", "LANHDAO", "MIEUTA", "NHATBAN", "ONGBAU", "QUYCHUAN",
+            "TAMLANGNUACAN", "TETHAP", "THONGTHOANG", "THUONGHIEU", "TOICAO", "TRUONGSONTAY", "TUNGTANG"
     };
     public static final int[] QUESTIONS = {
             R.drawable.hoidong, R.drawable.aomua, R.drawable.oto,
@@ -51,46 +53,49 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
             R.drawable.tohoai, R.drawable.canthiep, R.drawable.cattuong, R.drawable.danhlua,
             R.drawable.tichphan, R.drawable.quyhang, R.drawable.songsong, R.drawable.thothe,
             R.drawable.thattinh, R.drawable.tranhthu, R.drawable.totien, R.drawable.masat,
-            R.drawable.hongtam,R.drawable.baibac,R.drawable.bibach,R.drawable.chiase,R.drawable.chinchan,
-            R.drawable.cusuhao,R.drawable.detien,R.drawable.doitrangthayden,R.drawable.fifa,R.drawable.giaodien,
-            R.drawable.hoanghau,R.drawable.hoanhtrang,R.drawable.hoclech,R.drawable.hoihop,R.drawable.hovt,
-            R.drawable.khaithac,R.drawable.laban,R.drawable.lanhdao,R.drawable.mieuta,R.drawable.nhatban,R.drawable.ongbau,R.drawable.quychuan
-            ,R.drawable.tamlang,R.drawable.tethap,R.drawable.thongthoang,R.drawable.thuonghieu,R.drawable.toicao,R.drawable.truongsontay,R.drawable.tungtang
+            R.drawable.hongtam, R.drawable.baibac, R.drawable.bibach, R.drawable.chiase, R.drawable.chinchan,
+            R.drawable.cusuhao, R.drawable.detien, R.drawable.doitrangthayden, R.drawable.fifa, R.drawable.giaodien,
+            R.drawable.hoanghau, R.drawable.hoanhtrang, R.drawable.hoclech, R.drawable.hoihop, R.drawable.hovt,
+            R.drawable.khaithac, R.drawable.laban, R.drawable.lanhdao, R.drawable.mieuta, R.drawable.nhatban, R.drawable.ongbau, R.drawable.quychuan
+            , R.drawable.tamlang, R.drawable.tethap, R.drawable.thongthoang, R.drawable.thuonghieu, R.drawable.toicao, R.drawable.truongsontay, R.drawable.tungtang
 
     };
     private Random random = new Random();
     private int rd;
 
-    private String ketQua ="";
+    private String ketQua = "";
     private int lev = 0;
     SharedPreferences sharedPreferences;
-    public static String NameSharedPrefrence="namesharedreferen";
+    public static String NameSharedPrefrence = "namesharedreferen";
     public static final String lever = "1";
-    public static final String diem="0";
-    private ArrayList<Button> arrKey=new ArrayList<Button>();
-    private ArrayList<Button> arrQue=new ArrayList<Button>();
+    public static final String diem = "0";
+    private ArrayList<Button> arrKey = new ArrayList<Button>();
+    private ArrayList<Button> arrQue = new ArrayList<Button>();
     //private ArrayList<Integer> arrRD = new ArrayList<>();
 
     final int[] vt = {0};
     int click = 0;
-    int click1=0;
+    int click1 = 0;
 
-   private ArrayList<Integer> arrVitri=new ArrayList<>();
-   private SQLiteDatabase db;
+    private ArrayList<Integer> arrVitri = new ArrayList<>();
+    private SQLiteDatabase db;
     RewardedVideoAd mAd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-                Intent intent = getIntent();
-        Bundle b= intent.getExtras();
-         username = b.getString("USERNAME");
-         fullname=b.getString("FULLNAME");
-edFullName=findViewById(R.id.tv_usernamegame);
-        edusername=findViewById(R.id.tv_fullname);
-        edFullName.setText(fullname);
-        edusername.setText(username);
+        nguoiDungDao = new NguoiDungDao(getApplicationContext());
+        nguoiDung = new NguoiDung();
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        username = b.getString("USERNAME");
+        edFullName = findViewById(R.id.tv_usernamegame);
+        edusername = findViewById(R.id.tv_fullname);
+        nguoiDung = nguoiDungDao.getUser(username);
+        edFullName.setText(nguoiDung.hoTen);
+        edusername.setText(nguoiDung.userName);
         ActionBar a = getSupportActionBar();
         a.hide();
         inintText();
@@ -103,14 +108,20 @@ edFullName=findViewById(R.id.tv_usernamegame);
         creatImage();
         createButton();
         createButtonPick();
+        imThoat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            }
+        });
     }
 
 
     private void innitSQL() {
-        db=openOrCreateDatabase("demketqua.db",MODE_PRIVATE,null);
-    String sql="CREATE TABLE IF NOT EXISTS SoLuong(id integer primary key autoincrement,number integer)";
+        db = openOrCreateDatabase("demketqua.db", MODE_PRIVATE, null);
+        String sql = "CREATE TABLE IF NOT EXISTS SoLuong(id integer primary key autoincrement,number integer)";
 
-   //String sql="DROP TABLE SoLuong";
+        //String sql="DROP TABLE SoLuong";
 
         db.execSQL(sql);
 
@@ -119,49 +130,49 @@ edFullName=findViewById(R.id.tv_usernamegame);
     private void khoitaoketqua() {
         tv_Lever = findViewById(R.id.tv_Lever);
         tv_ruby = findViewById(R.id.tv_ruby);
-        sharedPreferences=getSharedPreferences(NameSharedPrefrence,MODE_PRIVATE);
-        if(sharedPreferences.contains(lever)){
-            tv_Lever.setText(sharedPreferences.getString(lever,"1"));
+        sharedPreferences = getSharedPreferences(NameSharedPrefrence, MODE_PRIVATE);
+        if (sharedPreferences.contains(lever)) {
+            tv_Lever.setText(sharedPreferences.getString(lever, "1"));
         }
-        if(sharedPreferences.contains(diem)){
-            tv_ruby.setText(sharedPreferences.getString(diem,"0"));
+        if (sharedPreferences.contains(diem)) {
+            tv_ruby.setText(sharedPreferences.getString(diem, "0"));
         }
-        System.out.println("biến radom: "+sharedPreferences.getInt("Radom",0));
+        System.out.println("biến radom: " + sharedPreferences.getInt("Radom", 0));
     }
-    private  void kttsl(){
+
+    private void kttsl() {
 
 
-        Cursor cursor=db.rawQuery("SELECT* FROM SoLuong",null);
-        int x=QUESTIONS.length;
-        int t=cursor.getCount();
+        Cursor cursor = db.rawQuery("SELECT* FROM SoLuong", null);
+        int x = QUESTIONS.length;
+        int t = cursor.getCount();
 
 //        System.out.println(" biến count:"+t);
 //        System.out.println(" biến x:"+x);
-        if(t>=x){
-            Intent i=new Intent(Main2Activity.this,Main4Activity.class);
+        if (t >= x) {
+            Intent i = new Intent(Main2Activity.this, Main4Activity.class);
             startActivity(i);
-           Toast.makeText(this,"full câu hỏi", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "full câu hỏi", Toast.LENGTH_LONG).show();
             //cursor.close();
             //db.close();
 
-        }
-
-        else {
+        } else {
             rd = random1();
         }
 
-        System.out.println("bien radom: "+rd);
+        System.out.println("bien radom: " + rd);
     }
+
     private int random1() {
 
-        int rdNumber=sharedPreferences.getInt("Radom",0);
+        int rdNumber = sharedPreferences.getInt("Radom", 0);
 
-          if(!kiemtra(rdNumber)){
-             boolean ok=true;
-            while (ok){
+        if (!kiemtra(rdNumber)) {
+            boolean ok = true;
+            while (ok) {
                 rdNumber = random.nextInt(QUESTIONS.length);
-                if(kiemtra(rdNumber)){
-                    ok=false;
+                if (kiemtra(rdNumber)) {
+                    ok = false;
                 }
             }
 
@@ -171,14 +182,6 @@ edFullName=findViewById(R.id.tv_usernamegame);
 
     @Override
     public void onBackPressed() {
-        Intent i=new Intent(Main2Activity.this,MainActivity.class);
-//        Bundle b = new Bundle() ;
-//        b.putString("USERNAME",username);
-//        b.putString("FULLNAME",fullname);
-//
-//        i.putExtras(b);
-
-        startActivity(i);
         super.onBackPressed();
 
     }
@@ -186,15 +189,16 @@ edFullName=findViewById(R.id.tv_usernamegame);
     // ham kiem tra xem so co nam trong mản chua
     private boolean kiemtra(int rdNumber) {
 
-        String sql="SELECT* FROM SoLuong WHERE number='"+rdNumber+"'";
-        Cursor cursor=db.rawQuery(sql,null);
-       // System.out.println("xuat hien count: "+cursor.getCount());
-        if(cursor.getCount()!=0){
+        String sql = "SELECT* FROM SoLuong WHERE number='" + rdNumber + "'";
+        Cursor cursor = db.rawQuery(sql, null);
+        // System.out.println("xuat hien count: "+cursor.getCount());
+        if (cursor.getCount() != 0) {
             return false;
         }
 
         return true;
     }
+
     private boolean check(ArrayList<Integer> arrRD, int rdNumber) {
         for (int i = 0; i < arrRD.size(); i++) {
             if (rdNumber == arrRD.get(i)) {
@@ -205,24 +209,24 @@ edFullName=findViewById(R.id.tv_usernamegame);
     }
 
     private void inintText() {
-        imThoat = findViewById(R.id.imthoat);
+        imThoat = findViewById(R.id.imgthoat);
         imGoiY = findViewById(R.id.imGoiY);
-         btnD_1=findViewById(R.id.btnD_1);
-         btnD_2=findViewById(R.id.btnD_2);
-         btnD_3=findViewById(R.id.btnD_3);
-         btnD_4=findViewById(R.id.btnD_4);
-         btnD_5=findViewById(R.id.btnD_5);
-         btnD_6=findViewById(R.id.btnD_6);
-         btnD_7=findViewById(R.id.btnD_7);
-         btnD_8=findViewById(R.id.btnD_8);
-         btnD_9=findViewById(R.id.btnD_9);
-         btnD_10=findViewById(R.id.btnD_10);
-         btnD_11=findViewById(R.id.btnD_11);
-         btnD_12=findViewById(R.id.btnD_12);
-         btnD_13=findViewById(R.id.btnD_13);
-         btnD_14=findViewById(R.id.btnD_14);
-         btnD_15=findViewById(R.id.btnD_15);
-         btnD_16=findViewById(R.id.btnD_16);
+        btnD_1 = findViewById(R.id.btnD_1);
+        btnD_2 = findViewById(R.id.btnD_2);
+        btnD_3 = findViewById(R.id.btnD_3);
+        btnD_4 = findViewById(R.id.btnD_4);
+        btnD_5 = findViewById(R.id.btnD_5);
+        btnD_6 = findViewById(R.id.btnD_6);
+        btnD_7 = findViewById(R.id.btnD_7);
+        btnD_8 = findViewById(R.id.btnD_8);
+        btnD_9 = findViewById(R.id.btnD_9);
+        btnD_10 = findViewById(R.id.btnD_10);
+        btnD_11 = findViewById(R.id.btnD_11);
+        btnD_12 = findViewById(R.id.btnD_12);
+        btnD_13 = findViewById(R.id.btnD_13);
+        btnD_14 = findViewById(R.id.btnD_14);
+        btnD_15 = findViewById(R.id.btnD_15);
+        btnD_16 = findViewById(R.id.btnD_16);
         arrQue.add(btnD_1);
         arrQue.add(btnD_2);
         arrQue.add(btnD_3);
@@ -241,42 +245,43 @@ edFullName=findViewById(R.id.tv_usernamegame);
         arrQue.add(btnD_16);
 
 
-         btn_1=findViewById(R.id.btn_1);
-         btn_2=findViewById(R.id.btn_2);
-         btn_3=findViewById(R.id.btn_3);
-         btn_4=findViewById(R.id.btn_4);
-         btn_5=findViewById(R.id.btn_5);
-         btn_6=findViewById(R.id.btn_6);
-         btn_7=findViewById(R.id.btn_7);
-         btn_8=findViewById(R.id.btn_8);
-         btn_9=findViewById(R.id.btn_9);
-         btn_10=findViewById(R.id.btn_10);
-         btn_11=findViewById(R.id.btn_11);
-         btn_12=findViewById(R.id.btn_12);
-         btn_13=findViewById(R.id.btn_13);
-         btn_14=findViewById(R.id.btn_14);
-         btn_15=findViewById(R.id.btn_15);
-         btn_16=findViewById(R.id.btn_16);
+        btn_1 = findViewById(R.id.btn_1);
+        btn_2 = findViewById(R.id.btn_2);
+        btn_3 = findViewById(R.id.btn_3);
+        btn_4 = findViewById(R.id.btn_4);
+        btn_5 = findViewById(R.id.btn_5);
+        btn_6 = findViewById(R.id.btn_6);
+        btn_7 = findViewById(R.id.btn_7);
+        btn_8 = findViewById(R.id.btn_8);
+        btn_9 = findViewById(R.id.btn_9);
+        btn_10 = findViewById(R.id.btn_10);
+        btn_11 = findViewById(R.id.btn_11);
+        btn_12 = findViewById(R.id.btn_12);
+        btn_13 = findViewById(R.id.btn_13);
+        btn_14 = findViewById(R.id.btn_14);
+        btn_15 = findViewById(R.id.btn_15);
+        btn_16 = findViewById(R.id.btn_16);
 
-          arrKey.add(btn_1);
-          arrKey.add(btn_2);
-          arrKey.add(btn_3);
-          arrKey.add(btn_4);
-          arrKey.add(btn_5);
-          arrKey.add(btn_6);
-          arrKey.add(btn_7);
-          arrKey.add(btn_8);
-          arrKey.add(btn_9);
-          arrKey.add(btn_10);
-          arrKey.add(btn_11);
-          arrKey.add(btn_12);
-          arrKey.add(btn_13);
-          arrKey.add(btn_14);
-          arrKey.add(btn_15);
-          arrKey.add(btn_16);
+        arrKey.add(btn_1);
+        arrKey.add(btn_2);
+        arrKey.add(btn_3);
+        arrKey.add(btn_4);
+        arrKey.add(btn_5);
+        arrKey.add(btn_6);
+        arrKey.add(btn_7);
+        arrKey.add(btn_8);
+        arrKey.add(btn_9);
+        arrKey.add(btn_10);
+        arrKey.add(btn_11);
+        arrKey.add(btn_12);
+        arrKey.add(btn_13);
+        arrKey.add(btn_14);
+        arrKey.add(btn_15);
+        arrKey.add(btn_16);
 
 
     }
+
     private void innitvideo() {
         MobileAds.initialize(this, getString(R.string.admod_app_id));
         mAd = (RewardedVideoAd) MobileAds.getRewardedVideoAdInstance(this);
@@ -336,7 +341,7 @@ edFullName=findViewById(R.id.tv_usernamegame);
 
                             }
                             int le = Integer.parseInt(tv_Lever.getText().toString());
-                            luu(finalRu, le,rd);
+                            luu(finalRu, le, rd);
                             tv_ruby.setText(finalRu + "");
                             String s = String.valueOf(Key[rd].charAt(vt[0]));
                             vt[0]++;
@@ -359,8 +364,7 @@ edFullName=findViewById(R.id.tv_usernamegame);
                     AlertDialog alertDialog = builder.create();
                     alertDialog.show();
 
-                }
-                else{
+                } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
                     builder.setTitle("rất tiếc bạn không đủ ruby để mở ký tự?");
                     builder.setIcon(R.drawable.nhaymat);
@@ -386,7 +390,6 @@ edFullName=findViewById(R.id.tv_usernamegame);
             }
 
 
-
         });
     }
 
@@ -398,7 +401,7 @@ edFullName=findViewById(R.id.tv_usernamegame);
         layout_2.addView(iv[rd]);
     }
 
-//    private ArrayList Qestion(){
+    //    private ArrayList Qestion(){
 //        ArrayList<Integer> arrMang=new ArrayList<>();
 //        for(int i=0;i<Key[rd].length();i++){
 //            arrMang.add(i);
@@ -407,38 +410,35 @@ edFullName=findViewById(R.id.tv_usernamegame);
 //    }
     private void createButton() {
 
-         int a = 0;
-        System.out.println("keylent: "+Key[rd].length());
+        int a = 0;
+        System.out.println("keylent: " + Key[rd].length());
 
-        for(int i=0;i<Key[rd].length();i++){
-            final int x=i;
+        for (int i = 0; i < Key[rd].length(); i++) {
+            final int x = i;
             arrKey.get(i).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(arrKey.get(x).getText().toString().compareTo("")==0){
+                    if (arrKey.get(x).getText().toString().compareTo("") == 0) {
                         arrKey.get(x).setClickable(false);
-                    }
-                    else {
+                    } else {
                         //arrKey.get(x).setClickable(true);
                         String s = arrKey.get(x).getText().toString();
                         arrKey.get(x).setText("");
 
-                        int tam=0;
-                        for(int j=0;j<arrVitri.size();j++) {
+                        int tam = 0;
+                        for (int j = 0; j < arrVitri.size(); j++) {
 //                                 int t= (int) Qestion().get(j);
 //                            System.out.println("biến t: "+t);
 //                            System.out.println("biến x"+ x);
-                            if ( j==x) {
+                            if (j == x) {
                                 tam = arrVitri.get(x);
-                                ketQua = deletChar(ketQua,j);
+                                ketQua = deletChar(ketQua, j);
                                 arrVitri.remove(j);
                                 //Qestion().remove(j);
 
                             }
                         }
-                            arrQue.get(tam).setVisibility(View.VISIBLE);
-
-
+                        arrQue.get(tam).setVisibility(View.VISIBLE);
 
 
                         vt[0] = x;
@@ -448,19 +448,18 @@ edFullName=findViewById(R.id.tv_usernamegame);
 //                    if(click1==0){
 //                        reset();
 //                    }
-                    System.out.println("ket qua strig:"+ketQua);
+                    System.out.println("ket qua strig:" + ketQua);
                 }
             });
             a++;
 
         }
 
-        if(a >Key[rd].length()-1){
-            for(int j = a; j<16; j++){
+        if (a > Key[rd].length() - 1) {
+            for (int j = a; j < 16; j++) {
                 arrKey.get(j).setVisibility(View.GONE);
             }
         }
-
 
 
     }
@@ -478,6 +477,7 @@ edFullName=findViewById(R.id.tv_usernamegame);
 //        return ket;
         return s.substring(0, x) + s.substring(x + 1);
     }
+
     private ArrayList Question() {
         ArrayList<String> arrS = new ArrayList<>();
         int temp = random.nextInt(25) + 65;
@@ -492,54 +492,52 @@ edFullName=findViewById(R.id.tv_usernamegame);
 
         return arrS;
     }
+
     private void createButtonPick() {
         ArrayList<Integer> arrSo = new ArrayList<>();
 
-          final int dem1 =Key[rd].length()-click;
-        for (int i = 0; i <16; i++) {
-             final int x=i;
-                  arrQue.get(i).setOnClickListener(new View.OnClickListener() {
-                       @Override
-                       public void onClick(View v) {
-                           if(click1<Key[rd].length()){
-                              click1++;
-                                  if (click1<dem1){
-                                      arrKey.get(vt[0]).setText(arrQue.get(x).getText());
-                                      ketQua += arrQue.get(x).getText();
-                                      arrQue.get(x).setVisibility(View.INVISIBLE);
+        final int dem1 = Key[rd].length() - click;
+        for (int i = 0; i < 16; i++) {
+            final int x = i;
+            arrQue.get(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (click1 < Key[rd].length()) {
+                        click1++;
+                        if (click1 < dem1) {
+                            arrKey.get(vt[0]).setText(arrQue.get(x).getText());
+                            ketQua += arrQue.get(x).getText();
+                            arrQue.get(x).setVisibility(View.INVISIBLE);
 
-                                   }
-                                   else if(click1==dem1){
+                        } else if (click1 == dem1) {
 
-                                      arrKey.get(vt[0]).setText(arrQue.get(x).getText());
-                                      ketQua += arrQue.get(x).getText();
-                                      arrQue.get(x).setVisibility(View.INVISIBLE);
-                                      findKey();
-                                  }
-                                   else{
-                                      arrQue.get(x).setEnabled(false);
-                                  }
+                            arrKey.get(vt[0]).setText(arrQue.get(x).getText());
+                            ketQua += arrQue.get(x).getText();
+                            arrQue.get(x).setVisibility(View.INVISIBLE);
+                            findKey();
+                        } else {
+                            arrQue.get(x).setEnabled(false);
+                        }
 
-                                   vt[0]++;
-                                   arrVitri.add(x);
-                                }
-                           else{
-                                       arrQue.get(x).setClickable(false);
-                           }
-                           //System.out.println("arrayvt size"+arrVitri.size());
-
-                       }
-                   });
-
-               while (arrQue.get(i).getText() == "") {
-                    int temp = random.nextInt(16);
-                    //kiểm tra tồn tại trong mảng chưa
-                  if (check(arrSo, temp)) {
-                        arrQue.get(i).setText((CharSequence) randomQuestion().get(temp));
-                        randomQuestion().remove(temp);
-                        arrSo.add(temp);
+                        vt[0]++;
+                        arrVitri.add(x);
+                    } else {
+                        arrQue.get(x).setClickable(false);
                     }
+                    //System.out.println("arrayvt size"+arrVitri.size());
+
                 }
+            });
+
+            while (arrQue.get(i).getText() == "") {
+                int temp = random.nextInt(16);
+                //kiểm tra tồn tại trong mảng chưa
+                if (check(arrSo, temp)) {
+                    arrQue.get(i).setText((CharSequence) randomQuestion().get(temp));
+                    randomQuestion().remove(temp);
+                    arrSo.add(temp);
+                }
+            }
 
         }
 
@@ -561,40 +559,40 @@ edFullName=findViewById(R.id.tv_usernamegame);
     }
 
     public void findKey() {
-            if (ketQua.equals(Key[rd])) {
-                String sql="INSERT INTO SoLuong(number) VALUES('"+rd+"')";
-                db.execSQL(sql);
+        if (ketQua.equals(Key[rd])) {
+            String sql = "INSERT INTO SoLuong(number) VALUES('" + rd + "')";
+            db.execSQL(sql);
 
-                int a = Integer.parseInt(tv_Lever.getText().toString());
-                int b = Integer.parseInt(tv_ruby.getText().toString());
-                lev = a + 1;
-                ruby = b + 5;
-                ketQua ="";
-                click1 = 0;
-                luu(ruby, lev,rd);
-                Intent in = new Intent(this, Main3Activity.class);
-                String s = String.valueOf(rd);
-                in.putExtra("a", s);
-                startActivity(in);
-                finish();
+            int a = Integer.parseInt(tv_Lever.getText().toString());
+            int b = Integer.parseInt(tv_ruby.getText().toString());
+            lev = a + 1;
+            ruby = b + 5;
+            ketQua = "";
+            click1 = 0;
+            luu(ruby, lev, rd);
+            Intent in = new Intent(this, Main3Activity.class);
+            String s = String.valueOf(rd);
+            in.putExtra("a", s);
+            startActivity(in);
+            finish();
 
-            } else {
-                Toast.makeText(Main2Activity.this, "sai rồi !!!", Toast.LENGTH_LONG).show();
-                return;
+        } else {
+            Toast.makeText(Main2Activity.this, "sai rồi !!!", Toast.LENGTH_LONG).show();
+            return;
 
-            }
+        }
 
 
     }
 
-    private void luu(int ruby,int lev,int rd){
-        String r= String.valueOf(ruby);
-        String l= String.valueOf(lev);
-        String y= String.valueOf(rd);
-        SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString(lever,l);
-        editor.putString(diem,r);
-        editor.putInt("Radom",rd);
+    private void luu(int ruby, int lev, int rd) {
+        String r = String.valueOf(ruby);
+        String l = String.valueOf(lev);
+        String y = String.valueOf(rd);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(lever, l);
+        editor.putString(diem, r);
+        editor.putInt("Radom", rd);
         editor.commit();
 
     }
@@ -636,8 +634,8 @@ edFullName=findViewById(R.id.tv_usernamegame);
 
         }
         int le = Integer.parseInt(tv_Lever.getText().toString());
-        luu(ru, le,rd);
-        tv_ruby.setText(ru+ "");
+        luu(ru, le, rd);
+        tv_ruby.setText(ru + "");
         String s = String.valueOf(Key[rd].charAt(vt[0]));
         vt[0]++;
         click1++;
