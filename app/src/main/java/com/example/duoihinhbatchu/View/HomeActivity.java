@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +21,7 @@ import com.facebook.CallbackManager;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     TextView edFullName, edusername;
     private AlertDialog alertDialog;
     Button btplay;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
         initView();
         nguoiDungDao = new NguoiDungDao(getApplicationContext());
         nguoiDung = new NguoiDung();
@@ -54,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         btplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                Intent intent = new Intent(HomeActivity.this, PlayActivity.class);
                 Bundle b = new Bundle();
                 b.putString("USERNAME", username);
                 intent.putExtras(b);
@@ -83,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
         String text = btnAmThanh.getText().toString();
         if (text.equals("Âm thanh: Bật")) {
             btnAmThanh.setText("Âm thanh: Tắt");
-            MainActivity.at = false;
+            HomeActivity.at = false;
             stopBackMusic();
             at = false;
         } else {
             at = true;
-            MainActivity.at = true;
+            HomeActivity.at = true;
             btnAmThanh.setText("Âm thanh: Bật");
             backMusic();
         }
@@ -148,19 +147,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnXepHang(View view) {
-        Intent intent = new Intent(MainActivity.this, XepHangActivity.class);
+        Intent intent = new Intent(HomeActivity.this, DanhSachActivity.class);
         startActivity(intent);
     }
 
 
 
 //    public void DangXuat(View view) {
-//        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+//        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
 //        startActivity(intent);
 //    }
 //
 //    public void DoiMatKhau(View view) {
-//        Intent intent = new Intent(MainActivity.this, DoiMatKhauActivity.class);
+//        Intent intent = new Intent(HomeActivity.this, DoiMatKhauActivity.class);
 //        startActivity(intent);
 //    }
 }

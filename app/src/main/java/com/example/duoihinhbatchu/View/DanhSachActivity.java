@@ -1,12 +1,8 @@
 package com.example.duoihinhbatchu.View;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.duoihinhbatchu.Adapter.NguoiDungAdapter;
@@ -18,7 +14,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XepHangActivity extends AppCompatActivity {
+public class DanhSachActivity extends AppCompatActivity {
 
 
         public static List<NguoiDung> dsNguoiDung = new ArrayList<>();
@@ -38,13 +34,9 @@ public class XepHangActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_xep_hang);
-            setTitle("Xếp hạng");
-
-
-
+            setContentView(R.layout.activity_danhsach);
             lvnguoidung = findViewById(R.id.customlvnguoidung);
-            nguoiDungDao = new NguoiDungDao(XepHangActivity.this);
+            nguoiDungDao = new NguoiDungDao(DanhSachActivity.this);
             dsNguoiDung = nguoiDungDao.getAllNguoiDung();
 
             adapter = new NguoiDungAdapter(dsNguoiDung, this);

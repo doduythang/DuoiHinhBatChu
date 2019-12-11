@@ -63,36 +63,36 @@ public class NguoiDungAdapter extends BaseAdapter {
             holder.imgavataruser = (ImageView) convertView.findViewById(R.id.imgUser);
             holder.txtName = (TextView) convertView.findViewById(R.id.tvName);
             holder.txtphone = (TextView) convertView.findViewById(R.id.tvDiem);
-            holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDeleteUser);
+//            holder.imgDelete = (ImageView) convertView.findViewById(R.id.imgDeleteUser);
 //            holder.iconchangepassword = (ImageView) convertView.findViewById(R.id.imgchangepass);
-            holder.imgDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setTitle("Delete người dùng");
-                    builder.setMessage("Bạn có muốn xóa không?");
-                    builder.setCancelable(false);
-                    builder.setPositiveButton("Không", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Toast.makeText(context, "Không xóa được", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                    builder.setNegativeButton("Xóa", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            nguoiDungDao.deleteNguoiDungByID(arrNguoidung.get(position).getUserName());
-                            arrNguoidung.remove(position);
-                            notifyDataSetChanged();
-
-                            dialogInterface.dismiss();
-                        }
-                    });
-                    AlertDialog alertDialog = builder.create();
-                    alertDialog.show();
-
-                }
-            });
+//            holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                    builder.setTitle("Delete người dùng");
+//                    builder.setMessage("Bạn có muốn xóa không?");
+//                    builder.setCancelable(false);
+//                    builder.setPositiveButton("Không", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            Toast.makeText(context, "Không xóa được", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//                    builder.setNegativeButton("Xóa", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            nguoiDungDao.deleteNguoiDungByID(arrNguoidung.get(position).getUserName());
+//                            arrNguoidung.remove(position);
+//                            notifyDataSetChanged();
+//
+//                            dialogInterface.dismiss();
+//                        }
+//                    });
+//                    AlertDialog alertDialog = builder.create();
+//                    alertDialog.show();
+//
+//                }
+//            });
 //            holder.iconchangepassword.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {

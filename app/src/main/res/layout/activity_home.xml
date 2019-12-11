@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/splash"
     android:orientation="vertical"
-    tools:context="com.example.duoihinhbatchu.View.MainActivity">
+    tools:context="com.example.duoihinhbatchu.View.HomeActivity">
 
     <LinearLayout
 
@@ -54,13 +54,6 @@
         <!--android:src="@drawable/baseline_vpn_key_black_18dp"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_marginRight="4dp"/>-->
-        <ImageView
-            android:id="@+id/imgDeleteUser"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:src="@drawable/ic_close" />
 
     </LinearLayout>
 
@@ -118,7 +111,7 @@
         android:layout_height="35dp"
         android:background="@drawable/boder_btn"
         android:onClick="OnXepHang"
-        android:text="Xếp hạng"
+        android:text="Danh Sách "
         android:textColor="#FF000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -22,19 +22,16 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.DoiMatKhauActivity" />
-        <activity android:name=".View.ChiaSeActivity" />
-        <activity android:name=".View.HuongDanActivity" />
-        <activity android:name=".View.Main4Activity" />
-        <activity android:name=".View.Main3Activity" />
-        <activity android:name=".View.Main2Activity" />
-        <activity android:name=".View.XepHangActivity" />
+        <activity android:name=".View.EndGameActivity" />
+        <activity android:name=".View.ExactlyActivity" />
+        <activity android:name=".View.PlayActivity" />
+        <activity android:name=".View.DanhSachActivity" />
         <activity android:name=".View.DangKyActivity" />
         <activity android:name=".View.LoginActivity">
 
         </activity>
         <activity
-            android:name=".View.MainActivity"
+            android:name=".View.HomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <meta-data

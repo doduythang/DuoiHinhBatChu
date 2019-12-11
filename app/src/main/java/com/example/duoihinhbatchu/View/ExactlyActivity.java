@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duoihinhbatchu.R;
@@ -15,7 +14,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class Main3Activity extends AppCompatActivity {
+public class ExactlyActivity extends AppCompatActivity {
 
     private final String[] Key={
             "HỘI ĐỒNG","ÁO MƯA","Ô TÔ","ĐÀN ÔNG","XÀ KÉP","TÔ HOÀI","CAN THIỆP","CÁT TƯỜNG",
@@ -31,7 +30,7 @@ public class Main3Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_exactly);
 
         addEvent();
         addControl();
@@ -48,14 +47,14 @@ public class Main3Activity extends AppCompatActivity {
         btnTiep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(Main3Activity.this,Main2Activity.class);
+                Intent in=new Intent(ExactlyActivity.this, PlayActivity.class);
                 startActivity(in); finish();
             }
         });
         btnThoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(Main3Activity.this, MainActivity.class);
+                Intent in=new Intent(ExactlyActivity.this, HomeActivity.class);
                 startActivity(in);
                 finish();
             }
