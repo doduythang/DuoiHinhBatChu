@@ -18,7 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XepHangActivity extends AppCompatActivity {
+public class DanhSachActivity extends AppCompatActivity {
 
 
         public static List<NguoiDung> dsNguoiDung = new ArrayList<>();
@@ -38,7 +38,7 @@ public class XepHangActivity extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_xep_hang);
+            setContentView(R.layout.activity_danhsach);
             setTitle("Xếp hạng");
 
 
@@ -46,7 +46,7 @@ public class XepHangActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
 
             lvnguoidung = findViewById(R.id.customlvnguoidung);
-            nguoiDungDao = new NguoiDungDao(XepHangActivity.this);
+            nguoiDungDao = new NguoiDungDao(DanhSachActivity.this);
             dsNguoiDung = nguoiDungDao.getAllNguoiDung();
 
             adapter = new NguoiDungAdapter(dsNguoiDung, this);
