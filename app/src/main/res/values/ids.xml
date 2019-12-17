@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="customlvnguoidung" type="id" />
+    <item name="tv_usernamegame" type="id" />
+    <item name="tv_fullname" type="id" />
 </resources>

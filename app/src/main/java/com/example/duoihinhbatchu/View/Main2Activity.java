@@ -91,14 +91,14 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
         setContentView(R.layout.activity_main2);
         nguoiDungDao = new NguoiDungDao(getApplicationContext());
         nguoiDung = new NguoiDung();
-//        Intent intent = getIntent();
-//        Bundle b = intent.getExtras();
-//        username = b.getString("USERNAME");
-//        edFullName = findViewById(R.id.tv_usernamegame);
-//        edusername = findViewById(R.id.tv_fullname);
-//        nguoiDung = nguoiDungDao.getUser(username);
-//        edFullName.setText(nguoiDung.getHoTen());
-//        edusername.setText(nguoiDung.getUserName());
+        Intent intent1 = getIntent();
+        Bundle b1 = intent1.getExtras();
+        username = b1.getString("USERNAME");
+        edFullName = findViewById(R.id.tv_usernamegame);
+        edusername = findViewById(R.id.tv_fullname);
+        nguoiDung = nguoiDungDao.getUser(username);
+        edFullName.setText(nguoiDung.getHoTen());
+        edusername.setText(nguoiDung.getUserName());
 
         inintText();
         innitSQL();
@@ -120,7 +120,10 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Main2Activity.this, LoginActivity.class);
+                        Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+                        Bundle b2 = new Bundle();
+                        b2.putString("USERNAME", username);
+                        intent.putExtras(b2);
                         startActivity(intent);
                     }
                 });
@@ -594,6 +597,7 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
             Intent in = new Intent(this, Main3Activity.class);
             String s = String.valueOf(rd);
             in.putExtra("a", s);
+            in.putExtra("USERNAME",username);
             startActivity(in);
             finish();
 
@@ -614,6 +618,7 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
         editor.putString(lever, l);
         editor.putString(diem, r);
         editor.putInt("Radom", rd);
+//nguoiDungDao.updateInfoNguoiDung(username,r,nguoiDungDao.getUser(username).getHoTen());
         editor.commit();
 
     }

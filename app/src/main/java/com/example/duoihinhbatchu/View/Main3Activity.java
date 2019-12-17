@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+import com.example.duoihinhbatchu.Model.NguoiDung;
 import com.example.duoihinhbatchu.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -25,6 +27,9 @@ public class Main3Activity extends AppCompatActivity {
             "KHAI THÁC","LA BÀN","LÃNH ĐẠO","MIÊU TẢ","NHẬT BẢN","ÔNG BẦU","QUY CHUẨN",
             "TÁM LẠNG NỬA CÂN","TÊ THẤP","THÔNG THOÁNG","THƯƠNG HIÊU","TỐI CAO","TRƯỜNG SƠN TÂY","TUNG TĂNG"
     };
+    String username, fullname, phone;
+    NguoiDung nguoiDung;
+    NguoiDungDao nguoiDungDao;
     TextView tvdapan;
     Button btnTiep,btnThoat;
     private AdView mAdView;
@@ -32,6 +37,9 @@ public class Main3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        username = b.getString("USERNAME");
 
         addEvent();
         addControl();
@@ -49,6 +57,10 @@ public class Main3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(Main3Activity.this,Main2Activity.class);
+
+                Bundle b = new Bundle();
+                b.putString("USERNAME", username);
+                in.putExtras(b);
                 startActivity(in); finish();
             }
         });
@@ -56,6 +68,11 @@ public class Main3Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(Main3Activity.this, MainActivity.class);
+
+                Bundle b = new Bundle();
+                b.putString("USERNAME", username);
+                in.putExtras(b);
+
                 startActivity(in);
                 finish();
             }
