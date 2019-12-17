@@ -10,14 +10,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
 import com.example.duoihinhbatchu.Model.NguoiDung;
 import com.example.duoihinhbatchu.R;
-import com.example.duoihinhbatchu.View.LoginActivity;
-import com.example.duoihinhbatchu.View.MainActivity;
 
 
 public class DangKyActivity extends AppCompatActivity {
@@ -47,7 +44,7 @@ btncanceluser.setOnClickListener(new View.OnClickListener() {
 //        btnlistnguoidung.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent = new Intent(DangKyActivity.this, MainActivity.class);
+//                Intent intent = new Intent(DangKyActivity.this, HomeActivity.class);
 //
 //                Bundle b = new Bundle() ;
 //

@@ -43,7 +43,7 @@ public class XepHangActivity extends AppCompatActivity {
 
 
             ActionBar actionBar = getSupportActionBar();
-//            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
 
             lvnguoidung = findViewById(R.id.customlvnguoidung);
             nguoiDungDao = new NguoiDungDao(XepHangActivity.this);

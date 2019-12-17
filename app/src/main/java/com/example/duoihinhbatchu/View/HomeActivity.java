@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,15 +21,14 @@ import com.facebook.CallbackManager;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     TextView edFullName, edusername;
     private AlertDialog alertDialog;
-
-    Button btnchangePass;
     Button btplay;
-
+    public static boolean at;
     TextView Ten, Diem;
-
+    private MediaPlayer mediaPlayer;
+    Button btnAmThanh;
     String username, fullname, phone;
     NguoiDung nguoiDung;
     NguoiDungDao nguoiDungDao;
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
         initView();
         nguoiDungDao = new NguoiDungDao(getApplicationContext());
         nguoiDung = new NguoiDung();
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         btplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                Intent intent = new Intent(HomeActivity.this, PlayActivity.class);
                 Bundle b = new Bundle();
                 b.putString("USERNAME", username);
                 intent.putExtras(b);
@@ -61,14 +61,58 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        at=getIntent().getBooleanExtra("at",true);
+        if (at==false){
+            btnAmThanh.setText("Âm thanh: Tắt");
+        }
+
+        backMusic();
+
     }
 
 
     private void initView() {
         edFullName = findViewById(R.id.tvName);
         edusername = findViewById(R.id.tvDiem);
+        btnAmThanh = findViewById(R.id.btnAmThanh);
 
 
+    }
+    public void turnOnSound(View view) {
+        String text = btnAmThanh.getText().toString();
+        if (text.equals("Âm thanh: Bật")) {
+            btnAmThanh.setText("Âm thanh: Tắt");
+            HomeActivity.at = false;
+            stopBackMusic();
+            at = false;
+        } else {
+            at = true;
+            HomeActivity.at = true;
+            btnAmThanh.setText("Âm thanh: Bật");
+            backMusic();
+        }
+    }
+
+    public void backMusic() {
+        if (at==true) {
+            mediaPlayer = MediaPlayer.create(this, R.raw.nhac_game);
+            mediaPlayer.start();
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+
+                    mediaPlayer.start();
+                }
+            });
+        }
+
+    }
+
+    public void stopBackMusic() {
+        if (at==false) {
+
+            mediaPlayer.release();
+        }
     }
 
 
@@ -103,17 +147,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnXepHang(View view) {
-        Intent intent = new Intent(MainActivity.this, XepHangActivity.class);
+        Intent intent = new Intent(HomeActivity.this, DanhSachActivity.class);
         startActivity(intent);
     }
 
-    public void DangXuat(View view) {
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        startActivity(intent);
-    }
 
-    public void DoiMatKhau(View view) {
-        Intent intent = new Intent(MainActivity.this, DoiMatKhauActivity.class);
-        startActivity(intent);
-    }
+
+//    public void DangXuat(View view) {
+//        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+//        startActivity(intent);
+//    }
+//
+//    public void DoiMatKhau(View view) {
+//        Intent intent = new Intent(HomeActivity.this, DoiMatKhauActivity.class);
+//        startActivity(intent);
+//    }
 }

@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -24,12 +23,11 @@ import com.example.duoihinhbatchu.Model.NguoiDung;
 import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
 import com.example.duoihinhbatchu.R;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Main2Activity extends AppCompatActivity implements RewardedVideoAdListener {
+public class PlayActivity extends AppCompatActivity implements RewardedVideoAdListener {
     private static final String TAG = "rdom";
     private ImageView imThoat, imGoiY;
     private TextView tv_Lever;
@@ -88,17 +86,17 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_play);
         nguoiDungDao = new NguoiDungDao(getApplicationContext());
         nguoiDung = new NguoiDung();
-        Intent intent1 = getIntent();
-        Bundle b1 = intent1.getExtras();
-        username = b1.getString("USERNAME");
-        edFullName = findViewById(R.id.tv_usernamegame);
-        edusername = findViewById(R.id.tv_fullname);
-        nguoiDung = nguoiDungDao.getUser(username);
-        edFullName.setText(nguoiDung.getHoTen());
-        edusername.setText(nguoiDung.getUserName());
+//        Intent intent = getIntent();
+//        Bundle b = intent.getExtras();
+//        username = b.getString("USERNAME");
+//        edFullName = findViewById(R.id.tv_usernamegame);
+//        edusername = findViewById(R.id.tv_fullname);
+//        nguoiDung = nguoiDungDao.getUser(username);
+//        edFullName.setText(nguoiDung.getHoTen());
+//        edusername.setText(nguoiDung.getUserName());
 
         inintText();
         innitSQL();
@@ -114,16 +112,13 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
         imThoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(PlayActivity.this);
                 builder.setTitle("Bạn có muốn đăng xuất!!!");
                 builder.setIcon(R.drawable.nhaymat);
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Main2Activity.this, MainActivity.class);
-                        Bundle b2 = new Bundle();
-                        b2.putString("USERNAME", username);
-                        intent.putExtras(b2);
+                        Intent intent = new Intent(PlayActivity.this, LoginActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -174,7 +169,7 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
 //        System.out.println(" biến count:"+t);
 //        System.out.println(" biến x:"+x);
         if (t >= x) {
-            Intent i = new Intent(Main2Activity.this, Main4Activity.class);
+            Intent i = new Intent(PlayActivity.this, EndGameActivity.class);
             startActivity(i);
             Toast.makeText(this, "full câu hỏi", Toast.LENGTH_LONG).show();
             //cursor.close();
@@ -305,26 +300,18 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
 
 
     }
-
-    private void innitvideo() {
-        MobileAds.initialize(this, getString(R.string.admod_app_id));
-        mAd = (RewardedVideoAd) MobileAds.getRewardedVideoAdInstance(this);
-        mAd.setRewardedVideoAdListener(this);
-    }
-
-
     private void creatChosse() {
 
         imThoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(PlayActivity.this);
                 builder.setTitle("Bạn có muốn quay trở lại menu !!!");
                 builder.setIcon(R.drawable.nhaymat);
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+                        Intent intent = new Intent(PlayActivity.this, HomeActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -346,7 +333,7 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
                 int ru = Integer.parseInt(tv_ruby.getText().toString());
                 ru = ru - 5;
                 if (ru > -1) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PlayActivity.this);
                     builder.setTitle("bạn có muốn gợi ý một ký tự?");
                     builder.setIcon(R.drawable.nhaymat);
                     final int finalRu = ru;
@@ -389,19 +376,19 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
                     alertDialog.show();
 
                 } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Main2Activity.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(PlayActivity.this);
                     builder.setTitle("rất tiếc bạn không đủ ruby để mở ký tự?");
                     builder.setIcon(R.drawable.nhaymat);
-                    builder.setPositiveButton("kiếm ruyby", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (mAd.isLoaded()) {
-                                mAd.show();
-                            } else {
-                                Log.e("Error", "ads not load");
-                            }
-                        }
-                    });
+//                    builder.setPositiveButton("kiếm ruyby", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            if (mAd.isLoaded()) {
+//                                mAd.show();
+//                            } else {
+//                                Log.e("Error", "ads not load");
+//                            }
+//                        }
+//                    });
                     builder.setNegativeButton("thoát", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -594,15 +581,14 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
             ketQua = "";
             click1 = 0;
             luu(ruby, lev, rd);
-            Intent in = new Intent(this, Main3Activity.class);
+            Intent in = new Intent(this, ExactlyActivity.class);
             String s = String.valueOf(rd);
             in.putExtra("a", s);
-            in.putExtra("USERNAME",username);
             startActivity(in);
             finish();
 
         } else {
-            Toast.makeText(Main2Activity.this, "sai rồi !!!", Toast.LENGTH_LONG).show();
+            Toast.makeText(PlayActivity.this, "sai rồi !!!", Toast.LENGTH_LONG).show();
             return;
 
         }
@@ -618,7 +604,6 @@ public class Main2Activity extends AppCompatActivity implements RewardedVideoAdL
         editor.putString(lever, l);
         editor.putString(diem, r);
         editor.putInt("Radom", rd);
-//nguoiDungDao.updateInfoNguoiDung(username,r,nguoiDungDao.getUser(username).getHoTen());
         editor.commit();
 
     }

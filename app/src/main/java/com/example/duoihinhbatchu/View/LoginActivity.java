@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                         NguoiDung user = nguoiDungDao.getUser(userName);
                         if (user != null && user.getUserName() != null) {
                             if (password.matches(user.getPassword())) {
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                                 Bundle b = new Bundle() ;
                                 b.putString("USERNAME",user.getUserName());
 //                                b.putString("key","a");
@@ -138,7 +138,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         }
 
         public void OpenMenu(View view) {
-            Intent intent=new Intent(this,MainActivity.class);
+            Intent intent=new Intent(this, HomeActivity.class);
             startActivity(intent);
 
         }
@@ -180,7 +180,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void navigate() {
-        Intent intent = new Intent(this,MainActivity.class);
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
 
     }

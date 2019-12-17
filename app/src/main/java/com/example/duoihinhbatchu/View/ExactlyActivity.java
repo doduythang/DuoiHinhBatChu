@@ -7,17 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
-import com.example.duoihinhbatchu.Model.NguoiDung;
 import com.example.duoihinhbatchu.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-public class Main3Activity extends AppCompatActivity {
+public class ExactlyActivity extends AppCompatActivity {
 
     private final String[] Key={
             "HỘI ĐỒNG","ÁO MƯA","Ô TÔ","ĐÀN ÔNG","XÀ KÉP","TÔ HOÀI","CAN THIỆP","CÁT TƯỜNG",
@@ -27,26 +24,17 @@ public class Main3Activity extends AppCompatActivity {
             "KHAI THÁC","LA BÀN","LÃNH ĐẠO","MIÊU TẢ","NHẬT BẢN","ÔNG BẦU","QUY CHUẨN",
             "TÁM LẠNG NỬA CÂN","TÊ THẤP","THÔNG THOÁNG","THƯƠNG HIÊU","TỐI CAO","TRƯỜNG SƠN TÂY","TUNG TĂNG"
     };
-    String username, fullname, phone;
-    NguoiDung nguoiDung;
-    NguoiDungDao nguoiDungDao;
     TextView tvdapan;
     Button btnTiep,btnThoat;
     private AdView mAdView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
-        Intent intent = getIntent();
-        Bundle b = intent.getExtras();
-        username = b.getString("USERNAME");
+        setContentView(R.layout.activity_exactly);
 
         addEvent();
         addControl();
-        MobileAds.initialize(this, " ca-app-pub-3940256099942544~3347511713");
-        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
+
 
     }
 
@@ -56,25 +44,8 @@ public class Main3Activity extends AppCompatActivity {
         btnTiep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in=new Intent(Main3Activity.this,Main2Activity.class);
-
-                Bundle b = new Bundle();
-                b.putString("USERNAME", username);
-                in.putExtras(b);
+                Intent in=new Intent(ExactlyActivity.this, PlayActivity.class);
                 startActivity(in); finish();
-            }
-        });
-        btnThoat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent in=new Intent(Main3Activity.this, MainActivity.class);
-
-                Bundle b = new Bundle();
-                b.putString("USERNAME", username);
-                in.putExtras(b);
-
-                startActivity(in);
-                finish();
             }
         });
     }
@@ -90,7 +61,6 @@ public class Main3Activity extends AppCompatActivity {
 
     private void addEvent() {
         tvdapan=findViewById(R.id.tvdapan);
-        btnThoat=findViewById(R.id.btnThoat);
         btnTiep=findViewById(R.id.btnTiep);
     }
 
