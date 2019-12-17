@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
                                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                                 Bundle b = new Bundle() ;
                                 b.putString("USERNAME",user.getUserName());
-//                                b.putString("key","a");
+
                                 intent.putExtras(b);
                                 startActivity(intent);
                                 finish();

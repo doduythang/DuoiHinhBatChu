@@ -9,13 +9,17 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+import com.example.duoihinhbatchu.Model.NguoiDung;
 import com.example.duoihinhbatchu.R;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 public class ExactlyActivity extends AppCompatActivity {
-
+    NguoiDungDao nguoiDungDao;
+    NguoiDung nguoiDung;
+    String username;
     private final String[] Key={
             "HỘI ĐỒNG","ÁO MƯA","Ô TÔ","ĐÀN ÔNG","XÀ KÉP","TÔ HOÀI","CAN THIỆP","CÁT TƯỜNG",
             "DÁNH LỪA","TÍCH PHÂN","QUY HÀNG","SONG HÀNH","THỎ THẺ","THẤT TÌNH","TRANH THỦ",
@@ -31,7 +35,11 @@ public class ExactlyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exactly);
-
+        nguoiDungDao = new NguoiDungDao(getApplicationContext());
+        nguoiDung = new NguoiDung();
+        Intent intent = getIntent();
+        Bundle b = intent.getExtras();
+        username = b.getString("USERNAME");
         addEvent();
         addControl();
 
@@ -45,6 +53,9 @@ public class ExactlyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(ExactlyActivity.this, PlayActivity.class);
+                Intent intent = getIntent();
+                Bundle b = intent.getExtras();
+                username = b.getString("USERNAME");
                 startActivity(in); finish();
             }
         });
@@ -54,6 +65,7 @@ public class ExactlyActivity extends AppCompatActivity {
 
         Intent i=getIntent();
         String s=i.getStringExtra("a");
+
         //System.out.println(" s là : "+s);
         int t= Integer.parseInt(s);
         tvdapan.setText(Key[t]);
