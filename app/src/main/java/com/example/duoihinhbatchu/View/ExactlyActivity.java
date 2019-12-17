@@ -53,9 +53,9 @@ public class ExactlyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent in=new Intent(ExactlyActivity.this, PlayActivity.class);
-                Intent intent = getIntent();
-                Bundle b = intent.getExtras();
-                username = b.getString("USERNAME");
+                Bundle b = new Bundle();
+                b.putString("USERNAME", username);
+                in.putExtras(b);
                 startActivity(in); finish();
             }
         });
