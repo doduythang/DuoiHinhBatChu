@@ -15,41 +15,21 @@
           android:src="@drawable/cuoit"/>
 
     <TextView
-        android:layout_below="@+id/imA"
-        android:layout_marginTop="10dp"
-        android:textSize="35sp"
-        android:gravity="center"
         android:id="@+id/chuc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Chúc Mừng"
-        android:textColor="#0974E2"/>
-    <TextView
-        android:layout_below="@+id/chuc"
-        android:layout_marginTop="5dp"
-        android:textSize="35sp"
+        android:layout_below="@+id/imA"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:id="@+id/dap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="đáp án:"
-        android:textColor="#0974E2"/>
-
-    <TextView
-        android:textColor="#EE930D"
-        android:gravity="center"
-        android:id="@+id/tvdapan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dap"
-        android:textSize="55sp"/>
+        android:text="Chúc Mừng bạn đã trả lời đúng"
+        android:textColor="#0974E2"
+        android:textSize="35sp" />
 
     <LinearLayout
         android:layout_centerInParent="true"
         android:layout_width="wrap_content"
+        android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvdapan"
-        android:layout_marginTop="17dp"
         android:orientation="horizontal">
 
         <TextView
@@ -66,15 +46,16 @@
             android:layout_width="60dp"
             android:layout_height="60dp" />
     </LinearLayout>
+
     <Button
-        android:textSize="20sp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
         android:id="@+id/btnTiep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="chơi tiếp"
-         android:background="@drawable/re_buttongame"
-        android:layout_below="@+id/tvdapan"/>
+        android:layout_below="@+id/chuc"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/re_buttongame"
+        android:text="tiếp tục"
+        android:textSize="20sp" />
 
 </RelativeLayout>

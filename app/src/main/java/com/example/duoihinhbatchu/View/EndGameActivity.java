@@ -20,8 +20,7 @@ public class EndGameActivity extends AppCompatActivity {
     NguoiDungDao nguoiDungDao;
     NguoiDung nguoiDung;
     String username;
-//    private AdView mAdView;
-    Button btnThoat,btnGameKhac;
+    Button btnThoat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,22 +30,10 @@ public class EndGameActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         username = b.getString("USERNAME");
-        MobileAds.initialize(this, " ca-app-pub-3940256099942544~3347511713");
-//        mAdView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-//        mAdView.loadAd(adRequest);
-        btnGameKhac=findViewById(R.id.btnGamekhac);
         btnThoat=findViewById(R.id.btnThoatGame);
-        btnGameKhac.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(EndGameActivity.this,"Đang liên kết game khác", Toast.LENGTH_LONG).show();
-            }
-        });
         btnThoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 finish();
             }
         });

@@ -10,11 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.duoihinhbatchu.Adapter.NguoiDungAdapter;
+
+import com.example.duoihinhbatchu.DataBase.DatabaseHelper;
 import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
 
 import com.example.duoihinhbatchu.Model.NguoiDung;
 
 import com.example.duoihinhbatchu.R;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -29,6 +32,7 @@ public class DanhSachActivity extends AppCompatActivity {
         NguoiDungAdapter adapter=null;
         NguoiDungDao nguoiDungDao;
 
+
         private FloatingActionButton fab;
     String  username;
         @Override
@@ -37,6 +41,8 @@ public class DanhSachActivity extends AppCompatActivity {
             dsNguoiDung.clear();
             dsNguoiDung = nguoiDungDao.getAllNguoiDung();
             adapter.changeDataset(nguoiDungDao.getAllNguoiDung());
+
+
         }
 
         @Override

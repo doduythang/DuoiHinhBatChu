@@ -155,15 +155,8 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
-//    public void DangXuat(View view) {
-//        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-//        startActivity(intent);
-//    }
-//
-//    public void DoiMatKhau(View view) {
-//        Intent intent = new Intent(HomeActivity.this, DoiMatKhauActivity.class);
-//        startActivity(intent);
-//    }
+    public void dangXuat(View view) {
+        Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
+        startActivity(intent);
+    }
 }

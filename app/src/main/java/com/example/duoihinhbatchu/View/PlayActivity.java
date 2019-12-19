@@ -19,6 +19,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import com.example.duoihinhbatchu.DataBase.DatabaseHelper;
+
 import com.example.duoihinhbatchu.Model.NguoiDung;
 import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
 import com.example.duoihinhbatchu.R;
@@ -27,13 +29,14 @@ import com.google.android.gms.ads.AdRequest;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PlayActivity extends AppCompatActivity implements RewardedVideoAdListener {
+public class PlayActivity extends AppCompatActivity  {
     private static final String TAG = "rdom";
     private ImageView imThoat, imGoiY;
     private TextView tv_Lever;
     String username, fullname;
     private TextView tv_ruby;
     private TextView edFullName, edusername;
+    DatabaseHelper databaseHelper;
     NguoiDung nguoiDung;
     NguoiDungDao nguoiDungDao;
     private int ruby = 0;
@@ -80,7 +83,7 @@ public class PlayActivity extends AppCompatActivity implements RewardedVideoAdLi
 
     private ArrayList<Integer> arrVitri = new ArrayList<>();
     private SQLiteDatabase db;
-    RewardedVideoAd mAd;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +116,7 @@ public class PlayActivity extends AppCompatActivity implements RewardedVideoAdLi
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(PlayActivity.this);
-                builder.setTitle("Bạn có muốn đăng xuất!!!");
+                builder.setTitle("Bạn có muốn thoát");
                 builder.setIcon(R.drawable.nhaymat);
                 builder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
                     @Override
@@ -394,7 +397,7 @@ public class PlayActivity extends AppCompatActivity implements RewardedVideoAdLi
 //                            }
 //                        }
 //                    });
-                    builder.setNegativeButton("thoát", new DialogInterface.OnClickListener() {
+                    builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -594,6 +597,7 @@ public class PlayActivity extends AppCompatActivity implements RewardedVideoAdLi
             in.putExtra("USERNAME",username);
             startActivity(in);
             finish();
+            
 
         } else {
             Toast.makeText(PlayActivity.this, "sai rồi !!!", Toast.LENGTH_LONG).show();
@@ -618,68 +622,6 @@ public class PlayActivity extends AppCompatActivity implements RewardedVideoAdLi
     }
 
 
-    @Override
-    public void onRewardedVideoAdLoaded() {
 
-    }
-
-    @Override
-    public void onRewardedVideoAdOpened() {
-
-    }
-
-    @Override
-    public void onRewardedVideoStarted() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdClosed() {
-        mAd.loadAd("ca-app-pub-3940256099942544/5224354917",
-                new AdRequest.Builder()
-                        .build());
-
-    }
-
-    @Override
-    public void onRewarded(RewardItem rewardItem) {
-        int ru = Integer.parseInt(tv_ruby.getText().toString());
-        arrKey.get(vt[0]).setText(Key[rd].charAt(vt[0]) + "");
-        String f = Key[rd].charAt(vt[0]) + "";
-        for (int i = 0; i < 16; i++) {
-            if (f.compareTo(arrQue.get(i).getText().toString()) == 0) {
-                arrQue.get(i).setVisibility(View.INVISIBLE);
-                break;
-            }
-
-        }
-        int le = Integer.parseInt(tv_Lever.getText().toString());
-        luu(ru, le, rd);
-        tv_ruby.setText(ru + "");
-        String s = String.valueOf(Key[rd].charAt(vt[0]));
-        vt[0]++;
-        click1++;
-        ketQua += s;
-        if (click1 == Key[rd].length()) {
-            findKey();
-
-        }
-
-    }
-
-    @Override
-    public void onRewardedVideoAdLeftApplication() {
-
-    }
-
-    @Override
-    public void onRewardedVideoAdFailedToLoad(int i) {
-
-    }
-
-    @Override
-    public void onRewardedVideoCompleted() {
-
-    }
 }
 
