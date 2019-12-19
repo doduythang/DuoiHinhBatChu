@@ -72,7 +72,7 @@ btncanceluser.setOnClickListener(new View.OnClickListener() {
         edfullname = (EditText) findViewById(R.id.edfullname);
         edtPassword = (EditText) findViewById(R.id.edtPassword);
         edtPassword2 = (EditText) findViewById(R.id.edtPassword2);
-        edtphone = (EditText) findViewById(R.id.edtphone);
+//        edtphone = (EditText) findViewById(R.id.edtphone);
         btncanceluser = (Button) findViewById(R.id.btncanceluser);
         btnadduser = (Button) findViewById(R.id.btnadduser);
 
@@ -80,8 +80,8 @@ btncanceluser.setOnClickListener(new View.OnClickListener() {
 
     public void addUser() {
         nguoiDungDao = new NguoiDungDao(DangKyActivity.this);
-        NguoiDung user = new NguoiDung(edUserName.getText().toString(), edtPassword.getText().toString(),
-                edtphone.getText().toString(), edfullname.getText().toString());
+        NguoiDung user = new NguoiDung(edUserName.getText().toString(), edtPassword.getText().toString()
+               , edfullname.getText().toString());
         try {
             if (validateForm()>0){
                 if (nguoiDungDao.insertNguoiDung(user)>0){
@@ -115,7 +115,7 @@ btncanceluser.setOnClickListener(new View.OnClickListener() {
     public int validateForm() {
         int check = 1;
         if (edUserName.getText().length() == 0 || edfullname.getText().length() == 0
-                || edtphone.getText().length() == 0 || edtPassword.getText().length() == 0
+                || edtPassword.getText().length() == 0
                 || edtPassword2.getText().length() == 0) {
             Toast.makeText(getApplicationContext(), "Bạn phải nhập đủ thông tin", Toast.LENGTH_SHORT).show();
             check = -1;

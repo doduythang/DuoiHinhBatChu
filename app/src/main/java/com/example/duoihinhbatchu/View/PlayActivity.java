@@ -173,6 +173,8 @@ public class PlayActivity extends AppCompatActivity implements RewardedVideoAdLi
 //        System.out.println(" biến x:"+x);
         if (t >= x) {
             Intent i = new Intent(PlayActivity.this, EndGameActivity.class);
+            i.putExtra("USERNAME",username);
+
             startActivity(i);
             Toast.makeText(this, "full câu hỏi", Toast.LENGTH_LONG).show();
             //cursor.close();
@@ -587,6 +589,8 @@ public class PlayActivity extends AppCompatActivity implements RewardedVideoAdLi
             Intent in = new Intent(this, ExactlyActivity.class);
             String s = String.valueOf(rd);
             in.putExtra("a", s);
+            in.putExtra("l",sharedPreferences.getString(lever,"1"));
+            in.putExtra("r",sharedPreferences.getString(diem,"0"));
             in.putExtra("USERNAME",username);
             startActivity(in);
             finish();

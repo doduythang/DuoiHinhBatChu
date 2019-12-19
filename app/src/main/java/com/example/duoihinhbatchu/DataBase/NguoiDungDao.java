@@ -17,7 +17,7 @@ public class NguoiDungDao {
     private DatabaseHelper dbHelper;
 
     public static final String TABLE_NAME = "NguoiDung";
-    public static final String SQL_NGUOI_DUNG = "CREATE TABLE NguoiDung(username text primary key, password text, phone text,hoten text);";
+    public static final String SQL_NGUOI_DUNG = "CREATE TABLE NguoiDung(username text primary key, password text, diem text,hoten text);";
     public static final String TAG = "NguoiDungDao";
 
     public NguoiDungDao(Context context) {
@@ -35,7 +35,7 @@ public class NguoiDungDao {
         ContentValues values = new ContentValues();
         values.put("username", nd.getUserName());
         values.put("password", nd.getPassword());
-        values.put("phone", nd.getPhone());
+        values.put("diem", nd.getPhone());
         values.put("hoten", nd.getHoTen());
 
         try {
@@ -74,7 +74,7 @@ public class NguoiDungDao {
         ContentValues values = new ContentValues();
         values.put("username", nd.getUserName());
         values.put("password", nd.getPassword());
-        values.put("phone", nd.getPhone());
+        values.put("diem", nd.getPhone());
         values.put("hoten", nd.getHoTen());
         int result = db.update(TABLE_NAME, values, "userame=?", new
                 String[]{nd.getUserName()});
@@ -109,11 +109,11 @@ public class NguoiDungDao {
                 new String[]{username});
     }
 
-    public int updateInfoNguoiDung(String username,String phone, String name){
+    public int updateInfoNguoiDung(String username,String diem, String name){
         ContentValues values = new ContentValues();
 
         values.put("hoten",name);
-        values.put("phone",phone);
+        values.put("diem",diem);
         int result = db.update(TABLE_NAME,values,"username=?", new
                 String[]{username});
         if (result == 0){
@@ -141,7 +141,7 @@ public class NguoiDungDao {
 
         // Truyen vao Ten bang, array bao gom ten cot, ten cot khoa chinh, gia tri khoa chinh, cac tham so con lai la null
 
-        Cursor cursor = db.query(TABLE_NAME, new String[]{"username", "password","phone", "hoten"},   "username=?", new String[]{username}, null, null, null, null);
+        Cursor cursor = db.query(TABLE_NAME, new String[]{"username", "password","diem", "hoten"},   "username=?", new String[]{username}, null, null, null, null);
 
         // moveToFirst : kiem tra xem cursor co chua du lieu khong, ham nay tra ve gia tri la true or false
         if (cursor != null && cursor.moveToFirst()) {
@@ -150,7 +150,7 @@ public class NguoiDungDao {
 
             String password = cursor.getString(cursor.getColumnIndex("password"));
 
-            String phone = cursor.getString(cursor.getColumnIndex("phone"));
+            String phone = cursor.getString(cursor.getColumnIndex("diem"));
 
             String hoten = cursor.getString(cursor.getColumnIndex("hoten"));
 
@@ -163,4 +163,5 @@ public class NguoiDungDao {
 
         return user;
     }
+
 }

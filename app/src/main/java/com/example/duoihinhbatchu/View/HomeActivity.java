@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.duoihinhbatchu.Model.NguoiDung;
 import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+
 import com.example.duoihinhbatchu.R;
 
 import com.facebook.CallbackManager;
@@ -148,6 +149,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void OnXepHang(View view) {
         Intent intent = new Intent(HomeActivity.this, DanhSachActivity.class);
+        Bundle b = new Bundle();
+        b.putString("USERNAME", username);
+        intent.putExtras(b);
         startActivity(intent);
     }
 

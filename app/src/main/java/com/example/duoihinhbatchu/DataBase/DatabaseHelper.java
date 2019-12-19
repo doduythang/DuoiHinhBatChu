@@ -6,8 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 
+
+
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "dbBookManager";
+    public static final String DATABASE_NAME = "dbUserManager";
     public static final int VESION=1;
 
 

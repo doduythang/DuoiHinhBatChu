@@ -121,17 +121,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp">
 
-                <EditText
+<!--                <EditText-->
 
-                    android:id="@+id/edtphone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Số điện thoại"
-                    android:imeActionId="6"
-                    android:imeOptions="actionDone"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:singleLine="true" />
+<!--                    android:id="@+id/edtphone"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Số điện thoại"-->
+<!--                    android:imeActionId="6"-->
+<!--                    android:imeOptions="actionDone"-->
+<!--                    android:inputType="number"-->
+<!--                    android:maxLines="1"-->
+<!--                    android:singleLine="true" />-->
 
             </com.google.android.material.textfield.TextInputLayout>
 

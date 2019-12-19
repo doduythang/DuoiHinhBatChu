@@ -11,7 +11,9 @@ import android.widget.ListView;
 
 import com.example.duoihinhbatchu.Adapter.NguoiDungAdapter;
 import com.example.duoihinhbatchu.DataBase.NguoiDungDao;
+
 import com.example.duoihinhbatchu.Model.NguoiDung;
+
 import com.example.duoihinhbatchu.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -26,8 +28,9 @@ public class DanhSachActivity extends AppCompatActivity {
         ListView lvnguoidung;
         NguoiDungAdapter adapter=null;
         NguoiDungDao nguoiDungDao;
-        private FloatingActionButton fab;
 
+        private FloatingActionButton fab;
+    String  username;
         @Override
         protected void onResume() {
             super.onResume();
@@ -41,10 +44,12 @@ public class DanhSachActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_danhsach);
             setTitle("Xếp hạng");
-
+            Intent intent = getIntent();
+            Bundle b5 = intent.getExtras();
+           username = b5.getString("USERNAME");
 
             ActionBar actionBar = getSupportActionBar();
-            actionBar.setDisplayHomeAsUpEnabled(true);
+
 
             lvnguoidung = findViewById(R.id.customlvnguoidung);
             nguoiDungDao = new NguoiDungDao(DanhSachActivity.this);
@@ -56,4 +61,13 @@ public class DanhSachActivity extends AppCompatActivity {
 
 
 
-        }}
+        }
+
+    public void OnHome(View view) {
+            Intent i= new Intent(DanhSachActivity.this,HomeActivity.class);
+        Bundle b = new Bundle();
+        b.putString("USERNAME", username);
+       i.putExtras(b);
+            startActivity(i);
+    }
+}

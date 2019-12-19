@@ -27,9 +27,7 @@
         <activity android:name=".View.PlayActivity" />
         <activity android:name=".View.DanhSachActivity" />
         <activity android:name=".View.DangKyActivity" />
-        <activity android:name=".View.LoginActivity">
-
-        </activity>
+        <activity android:name=".View.LoginActivity"></activity>
         <activity
             android:name=".View.HomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

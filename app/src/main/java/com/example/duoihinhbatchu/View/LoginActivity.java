@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             NguoiDung user2;
             user2 = nguoiDungDao.getUser("admin");
             if (user2 == null) {
-                NguoiDung user3 = new NguoiDung("admin", "1234567", "0355827535", "Phạm Đức Thắng");
+                NguoiDung user3 = new NguoiDung("admin", "1234567", String.valueOf(0), "Phạm Đức Thắng");
                 nguoiDungDao.insertNguoiDung(user3);
             }
             checkLogin();
